@@ -20,19 +20,19 @@ include_directories(${nlohmann_json_INCLUDE_DIRS})
 
 # Add the executable
 add_executable(chat++
-    src/main.cpp
-    src/client.cpp
-    src/server.cpp
-    src/message.cpp
-    src/helper.cpp
+        src/main.cpp
+        src/client.cpp
+        src/server.cpp
+        src/message.cpp
+        src/helper.cpp
 )
 
 # Add a test executable
 file(GLOB TEST_SOURCES tests/*.cpp)
-foreach(TEST_SOURCE ${TEST_SOURCES})
+foreach (TEST_SOURCE ${TEST_SOURCES})
     get_filename_component(TEST_NAME ${TEST_SOURCE} NAME_WE)
     add_executable(${TEST_NAME} ${TEST_SOURCE})
-endforeach()
+endforeach ()
 
 # Link the libraries
 target_link_libraries(chat++ ${Boost_LIBRARIES} nlohmann_json::nlohmann_json)
